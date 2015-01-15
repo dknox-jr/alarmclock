@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Alarm Clock</title>
+    <style>
+        h1{
+            font-size: 400px;
+            margin-top: 0;
+            margin-bottom: 0;
+            text-align: center;
+        }
+        body{
+            text-align: center;
+        }
+    </style>
+    <script>
+        function clock() {
+            document.body.style.backgroundColor = "white";
+            startTime = document.getElementById("input");
+            seconds = startTime.value;
+            seconds = parseInt(seconds);
+            countdown = document.getElementById("countdown");
+            countdown.innerHTML = seconds;
+            i = setInterval(tick, 1000);
+        }
+        function tick() {
+            seconds -=1;
+            countdown.innerHTML = seconds;
+                if (seconds == 0){
+                    clearInterval(i);
+                    document.body.style.backgroundColor = "red";
+        }
+
+        }
+
+
+    </script>
+</head>
+<body>
+<br>
+<input id="input" type="number" placeholder="Enter Number in Seconds">
+<br>
+<h1 id="countdown">0</h1>
+<button onclick="clock()">Start Timer</button>
+</body>
+</html>
